@@ -1,4 +1,4 @@
-package com.example.cyberbankend.Service.Implementation;
+package com.example.cyberbankend.Service;
 
 import com.example.cyberbankend.Dto.Request.ResponseDto;
 import com.example.cyberbankend.Dto.Response.RequestDto;
