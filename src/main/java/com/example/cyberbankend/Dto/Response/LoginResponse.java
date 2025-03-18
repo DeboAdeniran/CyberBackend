@@ -1,4 +1,4 @@
-package com.example.cyberbankend.Dto.Request;
+package com.example.cyberbankend.Dto.Response;
 
 public class LoginResponse {
     private String email;
