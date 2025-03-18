@@ -1,6 +1,6 @@
 package com.example.cyberbankend.Service.Implementation;
 
-import com.example.cyberbankend.Dto.Request.LoginResponse;
+import com.example.cyberbankend.Dto.Request.LoginRequest;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -19,13 +19,13 @@ public class JwtService {
 
     private String secretkey = null;
 
-    public String generateToken(LoginResponse loginResponse){
+    public String generateToken(LoginRequest loginRequest){
         Map<String, Object> claims = new HashMap<>();
         claims.put("admin",false);
         return Jwts.builder()
                 .claims()
                 .add(claims)
-                .subject(loginResponse.getEmail())
+                .subject(loginRequest.getLoginIdentifier())
                 .issuer("Cyber")
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + 60*10*1000))
