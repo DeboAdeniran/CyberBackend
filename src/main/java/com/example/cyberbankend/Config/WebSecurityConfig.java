@@ -32,7 +32,7 @@ public class WebSecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(
                         request -> request
-                                . requestMatchers("SignUp","Login").permitAll()
+                                . requestMatchers("/SignUp","Login","/verifyOTP").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
