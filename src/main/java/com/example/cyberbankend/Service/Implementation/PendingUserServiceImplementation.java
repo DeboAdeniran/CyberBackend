@@ -54,6 +54,8 @@ public class PendingUserServiceImplementation implements PendingUserService {
         redisTemplate.opsForValue().set("otp:" + pendingUser1.getEmail(), otp);
         redisTemplate.expire("email:" + pendingUser1.getEmail(), 10, TimeUnit.MINUTES);
         redisTemplate.expire("otp:" + pendingUser1.getEmail(), 10, TimeUnit.MINUTES);
+        System.out.println(otp);
+        System.out.println(pendingUser1.getEmail());
 
         System.out.println(pendingUser1);
         EmailDetails emailDetails = new EmailDetails();
@@ -85,7 +87,7 @@ public class PendingUserServiceImplementation implements PendingUserService {
     public Optional<PendingUser> getUserByEmail(String email) {
         String userID = (String) redisTemplate.opsForValue().get("email:" + email);
 
-        if (userID != null && userID.matches("\\d+")) { // Ensure userID is numeric
+        if (userID != null && userID.matches("-?\\d+")) { // Ensure userID is numeric
             return pendingUserRepository.findById(Long.parseLong(userID));
         }
         return Optional.empty();
