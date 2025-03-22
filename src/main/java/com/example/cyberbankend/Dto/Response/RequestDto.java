@@ -5,15 +5,17 @@ public class RequestDto {
     private String email;
     private String phoneNumber;
     private String password;
+    private String otp;
 
     public RequestDto() {
     }
 
-    public RequestDto(String name, String email, String phoneNumber, String password) {
+    public RequestDto(String name, String email, String phoneNumber, String password, String otp) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.otp = otp;
     }
 
     public String getName() {
@@ -48,6 +50,14 @@ public class RequestDto {
         this.password = password;
     }
 
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
     @Override
     public String toString() {
         return "RequestDto{" +
@@ -55,6 +65,7 @@ public class RequestDto {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", password='" + password + '\'' +
+                ", otp='" + otp + '\'' +
                 '}';
     }
 }
